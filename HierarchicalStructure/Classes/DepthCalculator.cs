@@ -2,19 +2,17 @@
 
 public class DepthCalculator
 {
-    public Branch Root;
-
     public static int CalculateMaxDepth(Branch branch)
     {
-        if (branch.branches.Count == 0)
+        if (branch.Branches.Count == 0)
         {
             return -1;
         }
         else
         {
-            int leftDepth = CalculateMaxDepth(branch.branches[2]);
-            int rightDepth = CalculateMaxDepth(branch.branches[0]);
-            int centerDepth = CalculateMaxDepth(branch.branches[1]);
+            int leftDepth = CalculateMaxDepth(branch.Branches[2]);
+            int rightDepth = CalculateMaxDepth(branch.Branches[0]);
+            int centerDepth = CalculateMaxDepth(branch.Branches[1]);
 
             if (leftDepth > rightDepth && leftDepth > centerDepth)
             {

@@ -1,11 +1,10 @@
 using FluentAssertions;
 using HierarchicalStructure.Classes;
-using HierarchicalStructure.Exceptions;
 
 namespace HierarchicalStructure.Tests;
 
 [TestClass]
-public class UnitTest1
+public class HierarchicalStructureTests
 {
     [TestMethod]
     public void CalculateMaxDepth_return_minus1()
@@ -31,27 +30,7 @@ public class UnitTest1
         //Assert
         calculateDepth.Should().Be(0);
     }
-    
-    [TestMethod]
-    public void CalculateMaxDepth_InvalidBranchException_ReturnCorrectException()
-    {
-        //Act
-        Action act = () => new Branch(new List<Branch>()
-        {
-            new (new List<Branch>()
-            {
-                new(new List<Branch>()),
-                new(new List<Branch>()),
-            }),
-            new (new List<Branch>()),
-            new (new List<Branch>()),
-        });
-        
-        //Assert
-        act.Should().Throw<InvalidBranchException>()
-            .WithMessage("Each list of branches must contain 3 Branches");
-    }
-    
+
     [TestMethod]
     public void CalculateMaxDepth_DepthIs_1_ReturnCorrectNumber()
     {
