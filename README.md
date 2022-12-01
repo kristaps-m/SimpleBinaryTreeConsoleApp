@@ -17,8 +17,4 @@ If you are new to .NET visit [microsoft.com](https://dotnet.microsoft.com/en-us/
 
 <img src="pictures/deep_1.png">
 
-5. In picture below we can see that depth is 3. Fallowing green line we can see that depth is max depth of tree is 3.
-
-<img src="pictures/deep_3.png">
-
-6. Feel free to modify the tree and increase the depth. Comment out part of the code starting from bottom and run the aplication. And look how tree grows from one to much more complex.
+5. Feel free to modify the tree and increase the depth and run the aplication. And look how tree grows from one to much more complex.

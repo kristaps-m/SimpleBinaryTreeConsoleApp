@@ -2,7 +2,6 @@
 
 Console.WriteLine("Welcome to Binary Tree");
 
-
 var branchTree = new Branch(new List<Branch>()
 {
   new (new List<Branch>()
