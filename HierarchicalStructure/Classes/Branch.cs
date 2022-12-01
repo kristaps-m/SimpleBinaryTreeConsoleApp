@@ -1,4 +1,6 @@
-﻿namespace HierarchicalStructure.Classes;
+﻿using HierarchicalStructure.Exceptions;
+
+namespace HierarchicalStructure.Classes;
 
 public class Branch
 {
@@ -6,6 +8,10 @@ public class Branch
 
     public Branch(List<Branch> branches)
     {
+        if (branches.Count != 3)
+        {
+            throw new InvalidBranchException();
+        }
         this.branches = branches;
     }
 }
