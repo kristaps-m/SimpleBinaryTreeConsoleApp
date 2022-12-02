@@ -7,7 +7,7 @@ namespace HierarchicalStructure.Tests;
 public class HierarchicalStructureTests
 {
     [TestMethod]
-    public void CalculateMaxDepth_return_minus1()
+    public void CalculateMaxDepth_BaseCase_return_1()
     {
         //Act
         var branchTree = new Branch(new List<Branch>());
@@ -17,18 +17,41 @@ public class HierarchicalStructureTests
     }
     
     [TestMethod]
+    public void CalculateMaxDepth_SimpleCaseWithMultipleBranchesInside_return_2()
+    {
+        //Act
+        var branchTree = 
+            new Branch(new List<Branch>()
+                {
+                    new Branch(new List<Branch>()),
+                    new Branch(new List<Branch>()),
+                    new Branch(new List<Branch>()),
+                    new Branch(new List<Branch>()),
+                    new Branch(new List<Branch>()),
+                    new Branch(new List<Branch>()),
+                    new Branch(new List<Branch>()),
+                    new Branch(new List<Branch>()),
+                    new Branch(new List<Branch>()),
+                });
+        var calculateDepth = DepthCalculator.CalculateMaxDepth(branchTree);
+        //Assert
+        calculateDepth.Should().Be(2);
+    }
+    
+    [TestMethod]
     public void CalculateMaxDepth_DepthIs_2_CanAddMultipleBranches_ReturnCorrectNumber()
     {
         //Act
-        var branchTree = new Branch(new List<Branch>()
-        {
-            new (new List<Branch>()),
-            new (new List<Branch>()),
-            new (new List<Branch>()),
-            new (new List<Branch>()),
-            new (new List<Branch>()),
-            new (new List<Branch>()),
-        });
+        var branchTree = 
+            new Branch(new List<Branch>()
+                {
+                    new (new List<Branch>()),
+                    new (new List<Branch>()),
+                    new (new List<Branch>()),
+                    new (new List<Branch>()),
+                    new (new List<Branch>()),
+                    new (new List<Branch>()),
+                });
         var calculateDepth = DepthCalculator.CalculateMaxDepth(branchTree);
         //Assert
         calculateDepth.Should().Be(2);
@@ -38,17 +61,17 @@ public class HierarchicalStructureTests
     public void CalculateMaxDepth_DepthIs_3_ReturnCorrectNumber()
     {
         //Act
-        var branchTree = new Branch(new List<Branch>()
-        {
-            new (new List<Branch>()
+        var branchTree = 
+            new Branch(new List<Branch>()
                 {
-                    new(new List<Branch>()),
-                    new(new List<Branch>()),
-                    new(new List<Branch>()),
-                }),
-            new (new List<Branch>()),
-            new (new List<Branch>()),
-        });
+                    new (new List<Branch>()
+                        {
+                            new(new List<Branch>()),
+                            new(new List<Branch>()),
+                        }),
+                    new (new List<Branch>()),
+                    new (new List<Branch>()),
+                });
         var calculateDepth = DepthCalculator.CalculateMaxDepth(branchTree);
         //Assert
         calculateDepth.Should().Be(3);
@@ -58,22 +81,24 @@ public class HierarchicalStructureTests
     public void CalculateMaxDepth_DepthIs_4_ReturnCorrectNumber()
     {
         //Act
-        var branchTree = new Branch(new List<Branch>()
-        {
-            new (new List<Branch>()
+        var branchTree = 
+            new Branch(new List<Branch>()
             {
-                new(new List<Branch>()
+                new (new List<Branch>()
                 {
-                    new(new List<Branch>()),
+                    new(new List<Branch>()
+                    {
+                        new(new List<Branch>()),
+                        new(new List<Branch>()),
+                        new(new List<Branch>()),
+                        new (new List<Branch>()),
+                    }),
                     new(new List<Branch>()),
                     new(new List<Branch>()),
                 }),
-                new(new List<Branch>()),
-                new(new List<Branch>()),
-            }),
-            new (new List<Branch>()),
-            new (new List<Branch>()),
-        });
+                new (new List<Branch>()),
+                new (new List<Branch>()),
+            });
         var calculateDepth = DepthCalculator.CalculateMaxDepth(branchTree);
         //Assert
         calculateDepth.Should().Be(4);
@@ -83,39 +108,39 @@ public class HierarchicalStructureTests
     public void CalculateMaxDepth_DepthIs_5_ReturnCorrectNumber()
     {
         //Act
-        var branchTree = new Branch(new List<Branch>()
-        {
-            new (new List<Branch>()
+        var branchTree = 
+            new Branch(new List<Branch>()
             {
-                new(new List<Branch>()
-                {
-                    new(new List<Branch>()),
-                    new(new List<Branch>()),
-                    new(new List<Branch>()),
-                }),
-                new(new List<Branch>()),
-                new(new List<Branch>()),
-            }),
-            
-            new (new List<Branch>()),
-            
-            new (new List<Branch>()
-            {
-                new(new List<Branch>()
-                {
-                    new(new List<Branch>()
+                new (new List<Branch>()
                     {
-                        new(new List<Branch>()),
+                        new(new List<Branch>()
+                            {
+                            new(new List<Branch>()),
+                            new(new List<Branch>()),
+                            new(new List<Branch>()),
+                            }),
                         new(new List<Branch>()),
                         new(new List<Branch>()),
                     }),
-                    new(new List<Branch>()),
-                    new(new List<Branch>()),
-                }),
-                new(new List<Branch>()),
-                new(new List<Branch>()),
-            }),
-        });
+                
+                new (new List<Branch>()),
+                new (new List<Branch>()
+                    {
+                        new(new List<Branch>()
+                            {
+                            new(new List<Branch>()
+                                    {
+                                        new(new List<Branch>()),
+                                        new(new List<Branch>()),
+                                        new(new List<Branch>()),
+                                    }),
+                                new(new List<Branch>()),
+                                new(new List<Branch>()),
+                            }),
+                        new(new List<Branch>()),
+                        new(new List<Branch>()),
+                    }),
+            });
         var calculateDepth = DepthCalculator.CalculateMaxDepth(branchTree);
         //Assert
         calculateDepth.Should().Be(5);
@@ -125,7 +150,8 @@ public class HierarchicalStructureTests
     public void CalculateMaxDepth_DepthIs_6_ReturnCorrectNumber()
     {
         //Act
-        var branchTree = new Branch(new List<Branch>()
+        var branchTree = 
+            new Branch(new List<Branch>()
         {
             new (new List<Branch>()
             {
@@ -170,18 +196,17 @@ public class HierarchicalStructureTests
     public void CalculateMaxDepth_DepthIs_8_ReturnCorrectNumber()
     {
         //Act
-        var branchTree = new Branch(new List<Branch>()
-        {
-            new (new List<Branch>()
+        var branchTree = 
+            new Branch(new List<Branch>()
             {
-                new(new List<Branch>()),
-                new(new List<Branch>()),
-                new(new List<Branch>()),
-            }),
-            new (new List<Branch>()),
-            new (new List<Branch>()
-            {
-                new(new List<Branch>()
+                new (new List<Branch>()
+                    {
+                        new(new List<Branch>()),
+                        new(new List<Branch>()),
+                        new(new List<Branch>()),
+                    }),
+                new (new List<Branch>()),
+                new (new List<Branch>()
                 {
                     new(new List<Branch>()
                     {
@@ -191,7 +216,12 @@ public class HierarchicalStructureTests
                             {
                                 new(new List<Branch>()
                                 {
-                                    new(new List<Branch>()),
+                                    new(new List<Branch>()
+                                    {
+                                        new(new List<Branch>()),
+                                        new(new List<Branch>()),
+                                        new(new List<Branch>()),
+                                    }),
                                     new(new List<Branch>()),
                                     new(new List<Branch>()),
                                 }),
@@ -200,17 +230,13 @@ public class HierarchicalStructureTests
                             }),
                             new(new List<Branch>()),
                             new(new List<Branch>()),
+                            new(new List<Branch>()),
                         }),
-                        new(new List<Branch>()),
                         new(new List<Branch>()),
                     }),
                     new(new List<Branch>()),
-                    new(new List<Branch>()),
                 }),
-                new(new List<Branch>()),
-                new(new List<Branch>()),
-            }),
-        });
+            });
         var calculateDepth = DepthCalculator.CalculateMaxDepth(branchTree);
         //Assert
         calculateDepth.Should().Be(8);

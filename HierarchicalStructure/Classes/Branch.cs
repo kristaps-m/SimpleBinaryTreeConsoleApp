@@ -8,13 +8,4 @@ public class Branch
     {
         this.Branches = branches;
     }
-
-    public Branch()
-    {
-    }
-    
-    public void AddBranch()
-    {
-        Branches.Add(new Branch());
-    }
 }

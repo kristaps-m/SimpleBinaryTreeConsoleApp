@@ -13,8 +13,8 @@ If you are new to .NET visit [microsoft.com](https://dotnet.microsoft.com/en-us/
 
 <img src="pictures/run.png">
 
-4. In picture below we can see that depth is 1.
+4. In picture below we can see that depth is 3.
 
-<img src="pictures/deep_1.png">
+<img src="pictures/deep_3.png">
 
 5. Feel free to modify the tree and increase the depth and run the aplication. And look how tree grows from one to much more complex.
